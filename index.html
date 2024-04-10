@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Javascript Coursera</title>
+    <style>
+      img {
+        width: 200px;
+        height: 200px;
+      }
+
+      #image {
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 style="color: #a79277">
+      This page contains JavaScript functions to process hover actions.<br />
+      Please hover over each image to see the display.
+    </h3>
+    <img
+      id="previewPic"
+      src="EiffeltTower.jpeg"
+      alt="Eiffelt Tower at Night"
+      onmouseover="upDate(this)"
+      onmouseout="undo()"
+    />
+    <img
+      id="previewPic2"
+      src="StatueOfLiberty.jpeg"
+      alt="Statue Of Liberty"
+      onmouseover="upDate(this)"
+      onmouseout="undo()"
+    />
+    <img
+      id="previewPic3"
+      src="SydneyOperaHouse.jpeg"
+      alt="Sydney Opera House"
+      onmouseover="upDate(this)"
+      onmouseout="undo()"
+    />
+    <img
+      id="previewPic4"
+      src="Moscow.jpeg"
+      alt="Moscow"
+      onmouseover="upDate(this)"
+      onmouseout="undo()"
+    />
+    <img
+      id="previewPic5"
+      src="Thailand.jpeg"
+      alt="Thailand"
+      onmouseover="upDate(this)"
+      onmouseout="undo()"
+    />
+    <img
+      id="previewPic6"
+      src="HongKong.jpeg"
+      alt="Hong Kong"
+      onmouseover="upDate(this)"
+      onmouseout="undo()"
+    />
+
+    <div id="image">Hover over an image below to display here.</div>
+
+    <script>
+      function upDate(element) {
+        // Step 1: Log event trigger
+        console.log("Event triggered.");
+
+        // Step 2: Print information about previewPic
+        console.log("Alt:", element.alt);
+        console.log("Source:", element.src);
+
+        // Step 3: Change text of element with id of "image"
+        var imageText = document.getElementById("image");
+        imageText.innerText = element.alt;
+
+        // Step 4: Check work
+        console.log("Text changed:", imageText.innerText);
+
+        // Step 5: Change background image of element with id of "image"
+        var imageBackground = document.getElementById("image");
+        imageBackground.style.backgroundImage = "url('" + element.src + "')";
+
+        // Step 6: Check work
+        console.log(
+          "Background image changed:",
+          imageBackground.style.backgroundImage
+        );
+      }
+
+      function undo() {
+        // Step 1: Update background image URL back to original
+        var imageBackground = document.getElementById("image");
+        imageBackground.style.backgroundImage = "url('')";
+
+        // Step 2: Update text of div back to original
+        var imageText = document.getElementById("image");
+
+        imageText.innerText = "Hover over an image above to display here.";
+      }
+    </script>
+  </body>
+</html>
